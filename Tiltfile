@@ -40,7 +40,10 @@ docker_build(
     live_update=[
         sync('./backend', '/app'),
         run('pip install --no-cache-dir -r requirements.txt', trigger=['requirements.txt']),
-    ]
+    ],
+    build_args={
+        'ENV': 'bob',
+    }
     )
 
 

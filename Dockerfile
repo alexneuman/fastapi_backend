@@ -1,9 +1,5 @@
 FROM python:3.13-slim
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
 # Set working directory
 WORKDIR /app
 
@@ -20,4 +16,11 @@ COPY . .
 
 EXPOSE 8000
 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Build arguments
+ARG ENV=development
+ENV ENV=$ENV
 CMD ["python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "-m", "fastapi", "run", "--host", "0.0.0", "--port", "8000"]
