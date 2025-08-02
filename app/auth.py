@@ -10,8 +10,8 @@ import jwt
 import os
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from .db.db import get_session
-from .models import User
+from db.db import get_session
+from models import User
 
 oauth2_scheme = OAuth2PasswordBearer('login')
 
